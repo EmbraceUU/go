@@ -78,6 +78,7 @@ func Parse(base *PosBase, src io.Reader, errh ErrorHandler, pragh PragmaHandler,
 	var p parser
 	p.init(base, src, errh, pragh, mode)
 	p.next()
+	// 分析一个文件
 	return p.fileOrNil(), p.first
 }
 

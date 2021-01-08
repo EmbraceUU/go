@@ -33,6 +33,7 @@ func (*node) aNode()     {}
 // Files
 
 // package PkgName; DeclList[0], DeclList[1], ...
+// 每一个SourceFile对应一个File结构体
 type File struct {
 	Pragma   Pragma
 	PkgName  *Name

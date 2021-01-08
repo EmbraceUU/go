@@ -574,6 +574,7 @@ func Main(archInit func(*Arch)) {
 	timings.Start("fe", "loadsys")
 	loadsys()
 
+	// 开始对源文件进行词法和语法分析
 	timings.Start("fe", "parse")
 	lines := parseFiles(flag.Args())
 	timings.Stop()

@@ -382,6 +382,7 @@ func (p *parser) fileOrNil() *File {
 	f.pos = p.pos()
 
 	// PackageClause
+	// 判断有没有package
 	if !p.got(_Package) {
 		p.syntaxError("package statement must be first")
 		return nil
@@ -396,7 +397,9 @@ func (p *parser) fileOrNil() *File {
 	}
 
 	// { ImportDecl ";" }
+	// 判断有没有import
 	for p.got(_Import) {
+		// 有的话, 将import的声明加入到DeclList中
 		f.DeclList = p.appendGroup(f.DeclList, p.importDecl)
 		p.want(_Semi)
 	}

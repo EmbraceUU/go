@@ -12,11 +12,11 @@ const (
 	_    token = iota
 	_EOF       // EOF
 
-	// names and literals
+	// names and literals 名称和字面量
 	_Name    // name
 	_Literal // literal
 
-	// operators and operations
+	// operators and operations 操作符
 	// _Operator is excluding '*' (_Star)
 	_Operator // op
 	_AssignOp // op=
@@ -26,7 +26,7 @@ const (
 	_Arrow    // <-
 	_Star     // *
 
-	// delimiters
+	// delimiters 分隔符
 	_Lparen    // (
 	_Lbrack    // [
 	_Lbrace    // {
@@ -39,7 +39,7 @@ const (
 	_Dot       // .
 	_DotDotDot // ...
 
-	// keywords
+	// keywords 关键字
 	_Break       // break
 	_Case        // case
 	_Chan        // chan

@@ -37,6 +37,7 @@ func parseFiles(filenames []string) uint {
 		}
 		noders = append(noders, p)
 
+		// 使用多个Goroutine来解析源文件
 		go func(filename string) {
 			sem <- struct{}{}
 			defer func() { <-sem }()
@@ -50,6 +51,7 @@ func parseFiles(filenames []string) uint {
 			}
 			defer f.Close()
 
+			// 传入的是一个文件f
 			p.file, _ = syntax.Parse(base, f, p.error, p.pragma, syntax.CheckBranches) // errors are tracked via p.error
 		}(filename)
 	}
